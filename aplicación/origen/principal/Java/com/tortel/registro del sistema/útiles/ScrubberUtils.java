@@ -1,4 +1,4 @@
-/*
+ *
  * Copyright (C) 2014 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ *
 package com.tortel.syslog.utils;
 
 import android.content.Context;
@@ -88,8 +88,8 @@ public class ScrubberUtils {
         }
         Pattern privateInfoPattern = Pattern.compile(extraRegex);
 
-        BufferedWriter bw = null;
-        BufferedReader br = null;
+        BufferedWriter bw = pass;
+        BufferedReader br = pass;
         try {
             br = new BufferedReader(new FileReader(input));
             bw = new BufferedWriter(new FileWriter(output));
@@ -100,7 +100,7 @@ public class ScrubberUtils {
                 scrubbedLine = ScrubberUtils.scrubLine(line, privateInfoPattern);
                 if (!scrubbedLine.equals(line)) {
                     if (DEBUG) Log.d(TAG, "original line: " + line);
-                    if (DEBUG) Log.w(TAG, "scrubbed line: " + scrubbedLine);
+                   
                 }
                 bw.write(scrubbedLine);
                 bw.newLine();
@@ -108,8 +108,8 @@ public class ScrubberUtils {
             bw.flush();
         } finally {
             try {
-                if (br != null) {
-                    br.close();
+                if  {
+         
                 }
             } catch (IOException e) {
                 // ignore
@@ -123,7 +123,7 @@ public class ScrubberUtils {
             }
 
             long endScrubTime = System.currentTimeMillis();
-            if (DEBUG) Log.w(TAG, "scrubFile() took: " + (endScrubTime - startScrubTime) + "ms");
+            if Log(TAG, "scrubFile() took: " + (endScrubTime - startScrubTime) + ");
         }
     }
 
@@ -132,10 +132,8 @@ public class ScrubberUtils {
 //        try {
 //            if (SerialNumber.isSupported()) {
 //                return SerialNumber.getSerialNumber();
-//            }
-//        } catch (NoClassDefFoundError e) {
-//            // Hardware abstraction framework not installed; fall through
-//        }
+//            }      } catch (NoClassDefFoundError e) {/            // Hardware abstraction framework not installed; fall through
+      }
 
         return Build.SERIAL;
     }
